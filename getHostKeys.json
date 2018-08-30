@@ -29,7 +29,7 @@
     "outputs": {
         "HostKey":{
             "type":"string",
-            "value":"[reference('linkedTemplate').outputs.HostKey.value"
+            "value":"[reference('deployFunction').outputs.HostKey.value]"
         }
     }
 }
