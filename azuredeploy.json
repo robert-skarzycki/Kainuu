@@ -119,7 +119,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[concat('https://raw.githubusercontent.com/',variables('gitUsername'),'/Kainuu/',variables('gitBranch'),'/createEdgeDevice.json')]",
+                    "uri": "[concat('https://raw.githubusercontent.com/',variables('gitUsername'),'/Kainuu/',variables('gitBranch'),'/getHostKeys.json')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
