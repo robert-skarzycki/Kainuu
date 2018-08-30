@@ -7,18 +7,7 @@
             "metadata": {
                 "description": "Prefix used for resource names. Should be unique as this will also be used for domain names."
             }
-        },
-        "edgeGatewayName": {
-            "type": "string",
-            "metadata": {
-                "description": "The name of the Edge gateway"
-            }
-        },
-        "deployDevice": {
-            "type": "bool",
-            "metadata": {
-                "description": "Provision a final LoRa device in the IoT hub in addition to the gateway"
-            }
+        
         }
     },
     "variables": {
@@ -43,6 +32,17 @@
             },
             "dependsOn": [
             ]
+        },
+        {
+            "type": "Microsoft.Web/serverfarms",
+            "apiVersion": "2015-04-01",
+            "name": "[variables('hostingPlanName')]",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "name": "[variables('hostingPlanName')]",
+                "computeMode": "Dynamic",
+                "sku": "Dynamic"
+            }
         },
         {
             "apiVersion": "2016-08-01",
@@ -73,11 +73,7 @@
                 "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
                 "siteConfig": {
                     "connectionStrings": [
-                        {
-                            "name": "IoTHubConnectionString",
-                            "type": "Custom",
-                            "connectionString": "[concat('HostName=', variables('iotHubName'), '.azure-devices.net;SharedAccessKeyName=', variables('iotHubOwnerPolicyName'), ';SharedAccessKey=', listKeys(resourceId('Microsoft.Devices/IotHubs/IotHubKeys', variables('iotHubName'), variables('iotHubOwnerPolicyName')), '2017-01-19').primaryKey)]"
-                        }
+                      
                     ],
                     "appSettings": [
                         {
@@ -129,9 +125,6 @@
                 "parameters": {
                     "solutionPrefix": {
                         "value": "[parameters('uniqueSolutionPrefix')]"
-                    },
-                    "edgeGatewayName": {
-                        "value": "[parameters('edgeGatewayName')]"
                     }
                 }
             }

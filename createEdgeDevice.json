@@ -7,12 +7,6 @@
             "metadata": {
                 "description": "Prefix used in resource names. Should be unique enough since this ends up being used also in domain names."
             }
-        },
-        "edgeGatewayName": {
-            "type": "string",
-            "metadata": {
-                "description": "The name of the Edge gateway."
-            }
         }
     },
     "variables": {
