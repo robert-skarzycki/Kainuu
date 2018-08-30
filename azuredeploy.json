@@ -133,7 +133,7 @@
     "outputs": {
         "HostKey": {
             "type": "string",
-            "value": "[reference('linkedTemplate').outputs.greetingMessage.value]"
+            "value": "[reference('linkedTemplate').outputs.HostKey.value]"
         }
 
     }

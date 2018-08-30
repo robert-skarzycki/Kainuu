@@ -25,5 +25,11 @@
                 }
             }
         }
-    ]
+    ],
+    "outputs": {
+        "HostKey":{
+            "type":"string",
+            "value":"[reference('linkedTemplate').outputs.HostKey.value"
+        }
+    }
 }
