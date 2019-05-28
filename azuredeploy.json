@@ -82,7 +82,7 @@
             },
             {
               "name": "FUNCTIONS_EXTENSION_VERSION",
-              "value": "beta"
+              "value": "~2"
             },
             {
               "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
